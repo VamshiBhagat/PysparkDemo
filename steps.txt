@@ -1,0 +1,18 @@
+Java 21
+Python > 3.9
+Spark 4.0.0
+
+Set HADOOP_HOME
+Set SPARK_HOME
+
+add SPARK_HOME/python/lib/pyspark.zip and /pypy.zip to PATH
+
+Caused by: java.io.IOException: Cannot run program "python3": CreateProcess error=2, The system cannot find the file specified
+
+Option 1: Tell Spark which Python to use
+
+Set the environment variables PYSPARK_PYTHON and PYSPARK_DRIVER_PYTHON to point to your Python installation. Since you’re using Miniconda, it should be something like:
+
+# In PowerShell or CMD before running your script:
+setx PYSPARK_PYTHON "C:\Users\Vamshi Krishna\miniconda3\python.exe"
+setx PYSPARK_DRIVER_PYTHON "C:\Users\Vamshi Krishna\miniconda3\python.exe"
